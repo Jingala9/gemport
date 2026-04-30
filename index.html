@@ -3,47 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cinematic Portfolio | Filmmaker</title>
+<title>Aisha Abbas | Luxury Travel Content Creator</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap');
+
+:root {
+--warm-beige: #F5F0E8;
+--soft-cream: #FCF9F5;
+--deep-brown: #3E2F28;
+--light-sand: #E8DED1;
+--gold-accent: #C5A059;
+}
 
 body {
-background-color: #050505;
-color: #ffffff;
-font-family: 'Inter', sans-serif;
-cursor: none; /* Custom cursor implementation */
+background-color: var(--warm-beige);
+color: var(--deep-brown);
+font-family: 'Montserrat', sans-serif;
 }
 
-.serif { font-family: 'Playfair Display', serif; }
+.font-serif-main { font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+.font-serif-soft { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; }
+.font-script { font-family: 'Great Vibes', cursive; color: var(--gold-accent); }
 
 .glass-nav {
-background: rgba(5, 5, 5, 0.6);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-}
-
-.custom-cursor {
-width: 20px;
-height: 20px;
-background: white;
-border-radius: 50%;
-position: fixed;
-pointer-events: none;
-z-index: 9999;
-transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
-mix-blend-mode: difference;
-}
-
-.project-card:hover ~ .custom-cursor {
-transform: scale(4);
+background: rgba(245, 240, 232, 0.8);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(62, 47, 40, 0.05);
 }
 
 .reveal {
 opacity: 0;
-transform: translateY(30px);
-transition: all 0.8s ease-out;
+transform: translateY(20px);
+transition: all 1s ease-out;
 }
 
 .reveal.active {
@@ -51,117 +44,216 @@ opacity: 1;
 transform: translateY(0);
 }
 
-.video-container video {
-filter: grayscale(20%) brightness(0.8);
-transition: filter 0.5s ease;
+.btn-luxury {
+border: 1px solid var(--deep-brown);
+padding: 0.75rem 2rem;
+transition: all 0.4s ease;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+font-size: 0.75rem;
 }
 
-.project-card:hover video {
-filter: grayscale(0%) brightness(1);
+.btn-luxury:hover {
+background-color: var(--deep-brown);
+color: white;
+}
+
+.parallax-bg {
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+}
+
+/* Custom Project Hover */
+.project-card:hover img {
+transform: scale(1.05);
+}
+.project-card img {
+transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>
 </head>
-<body>
+<body class="selection:bg-stone-200">
 
-<div id="cursor" class="custom-cursor hidden md:block"></div>
-
-<nav class="fixed top-0 w-full z-50 glass-nav border-b border-white/10">
-<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-<span class="text-xl font-semibold tracking-tighter uppercase">Director's Cut</span>
-<div class="space-x-8 text-sm uppercase tracking-widest opacity-80">
-<a href="#work" class="hover:opacity-100 transition">Work</a>
-<a href="#about" class="hover:opacity-100 transition">About</a>
-<a href="#contact" class="hover:opacity-100 transition">Contact</a>
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+<span class="font-serif-main text-2xl tracking-widest uppercase">Aisha Abbas</span>
+<div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.2em]">
+<a href="#work" class="hover:text-amber-700 transition">Work</a>
+<a href="#about" class="hover:text-amber-700 transition">About</a>
+<a href="#services" class="hover:text-amber-700 transition">Services</a>
+<a href="#contact" class="hover:text-amber-700 transition">Contact</a>
 </div>
+<div class="md:hidden"><i data-lucide="menu"></i></div>
 </div>
 </nav>
 
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
 <video autoplay muted loop playsinline class="absolute w-full h-full object-cover">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-shores-of-a-misty-beach-1275-large.mp4" type="video/mp4">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-a-luxury-resort-and-the-sea-18151-large.mp4" type="video/mp4">
 </video>
-<div class="absolute inset-0 bg-black/40"></div>
+<div class="absolute inset-0 bg-[#F5F0E8]/30"></div>
 
 <div class="relative z-10 text-center px-4">
-<h1 class="serif text-6xl md:text-9xl mb-4 leading-tight">Visual Stories<br>Worth Telling.</h1>
-<p class="text-lg md:text-xl font-light tracking-[0.2em] uppercase opacity-70">Cinematographer & Editor</p>
+<span class="font-script text-4xl md:text-5xl block mb-2">Aisha Abbas</span>
+<h1 class="font-serif-main text-5xl md:text-8xl mb-6 tracking-tight">Luxury Travel <br>Content Creator</h1>
+<p class="max-w-xl mx-auto text-sm md:text-base font-light tracking-wide mb-10 opacity-90">
+I create refined visual stories for brands and destinations worldwide.
+</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+<a href="#work" class="btn-luxury bg-white/20 backdrop-blur-sm">View My Work</a>
+<a href="#contact" class="btn-luxury bg-[#3E2F28] text-white">Work With Me</a>
+</div>
 </div>
 
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-<i data-lucide="chevron-down"></i>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-pulse flex flex-col items-center opacity-40">
+<span class="text-[9px] uppercase tracking-[0.3em] mb-2">Scroll</span>
+<div class="w-[1px] h-12 bg-[#3E2F28]"></div>
 </div>
 </section>
 
-<main id="work" class="max-w-7xl mx-auto px-6 py-32">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+<section id="about" class="py-32 px-8 bg-white/50">
+<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+<div class="reveal relative">
+<div class="aspect-[4/5] bg-stone-200 overflow-hidden rounded-sm shadow-2xl">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac55?auto=format&fit=crop&q=80&w=800" alt="Aisha Abbas" class="w-full h-full object-cover grayscale-[20%]">
+</div>
+<div class="absolute -bottom-10 -right-10 w-64 h-64 border border-[#C5A059]/30 hidden md:block"></div>
+</div>
 
-<div class="reveal project-card md:col-span-2 group cursor-pointer">
-<div class="relative aspect-video overflow-hidden bg-zinc-900 rounded-sm">
-<video muted loop class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-clover-field-under-a-sunset-sky-1191-large.mp4" type="video/mp4">
-</video>
-</div>
-<div class="mt-8 flex justify-between items-end">
+<div class="reveal">
+<span class="font-serif-soft text-2xl mb-4 block">The Art of Travel</span>
+<h2 class="font-serif-main text-4xl md:text-5xl mb-8 leading-tight">Capturing destinations through a lens of elegance.</h2>
+<p class="text-stone-600 leading-relaxed mb-12 font-light">
+Based between Dubai and Paris, I specialize in creating editorial-style UGC that feels like a luxury hotel campaign. My work blends emotion with high-end aesthetics, ensuring every frame resonates with the sophisticated traveler.
+</p>
+
+<div class="grid grid-cols-3 gap-8 pt-8 border-t border-stone-200">
 <div>
-<h2 class="serif text-4xl mb-2">Golden Hour Theory</h2>
-<p class="opacity-50 uppercase text-xs tracking-widest">Documentary • 2024</p>
+<span class="block text-2xl font-serif-main">30+</span>
+<span class="text-[10px] uppercase tracking-widest opacity-60">Countries</span>
 </div>
-<i data-lucide="arrow-up-right" class="opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0"></i>
+<div>
+<span class="block text-2xl font-serif-main">50+</span>
+<span class="text-[10px] uppercase tracking-widest opacity-60">Brands</span>
 </div>
+<div>
+<span class="block text-2xl font-serif-main">2M+</span>
+<span class="text-[10px] uppercase tracking-widest opacity-60">Views</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="work" class="py-32 px-8 bg-[#F5F0E8]">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-20 reveal">
+<div>
+<span class="font-script text-3xl">Curated Collection</span>
+<h2 class="font-serif-main text-5xl mt-2">Visual Stories</h2>
+</div>
+<div class="hidden md:flex space-x-6 text-[10px] uppercase tracking-widest">
+<button class="hover:text-amber-700 underline">All</button>
+<button class="opacity-40 hover:opacity-100">Hotels</button>
+<button class="opacity-40 hover:opacity-100">Lifestyle</button>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<div class="reveal project-card group cursor-pointer">
+<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
+</div>
+</div>
+<h3 class="font-serif-main text-2xl">The Azure Resort</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Amalfi Coast • 2024</p>
+</div>
+
+<div class="reveal project-card group cursor-pointer lg:mt-24">
+<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
+<img src="https://images.unsplash.com/photo-1544161515-4ad6ce6e832d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
+</div>
+</div>
+<h3 class="font-serif-main text-2xl">Sands of Serenity</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Wellness & Beauty • UGC</p>
 </div>
 
 <div class="reveal project-card group cursor-pointer">
-<div class="relative aspect-[4/5] md:aspect-square overflow-hidden bg-zinc-900 rounded-sm">
-<video muted loop class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-professional-skating-in-the-streets-at-night-1188-large.mp4" type="video/mp4">
-</video>
-</div>
-<div class="mt-6">
-<h2 class="serif text-3xl mb-2">Urban Pulse</h2>
-<p class="opacity-50 uppercase text-xs tracking-widest">Commercial • 2023</p>
+<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
+<img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
 </div>
 </div>
+<h3 class="font-serif-main text-2xl">Hotel de L'Opera</h3>
+<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Paris • Brand Campaign</p>
+</div>
+</div>
+</div>
+</section>
 
-<div class="reveal project-card group cursor-pointer md:mt-24">
-<div class="relative aspect-[4/5] md:aspect-square overflow-hidden bg-zinc-900 rounded-sm">
-<video muted loop class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-pov-of-a-person-walking-in-the-snow-1200-large.mp4" type="video/mp4">
-</video>
-</div>
-<div class="mt-6">
-<h2 class="serif text-3xl mb-2">The Silent North</h2>
-<p class="opacity-50 uppercase text-xs tracking-widest">Narrative Short</p>
-</div>
-</div>
+<section id="services" class="py-32 px-8 bg-[#FCF9F5]">
+<div class="max-w-7xl mx-auto text-center">
+<span class="font-script text-3xl">Collaboration</span>
+<h2 class="font-serif-main text-5xl mt-2 mb-20">Creative Services</h2>
 
+<div class="grid md:grid-cols-4 gap-12">
+<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
+<i data-lucide="camera" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
+<h4 class="font-serif-main text-xl mb-4">UGC Content</h4>
+<p class="text-[11px] font-light leading-relaxed opacity-70">Authentic luxury reviews and vertical video storytelling.</p>
 </div>
-</main>
+<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
+<i data-lucide="video" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
+<h4 class="font-serif-main text-xl mb-4">Hotel Shoots</h4>
+<p class="text-[11px] font-light leading-relaxed opacity-70">Aesthetic cinematography for high-end resorts.</p>
+</div>
+<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
+<i data-lucide="sparkles" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
+<h4 class="font-serif-main text-xl mb-4">Brand Ambassadorship</h4>
+<p class="text-[11px] font-light leading-relaxed opacity-70">Long-term partnerships for premium lifestyle brands.</p>
+</div>
+<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
+<i data-lucide="smartphone" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
+<h4 class="font-serif-main text-xl mb-4">Social Visuals</h4>
+<p class="text-[11px] font-light leading-relaxed opacity-70">Aesthetic-led social media strategy and visual curation.</p>
+</div>
+</div>
+</div>
+</section>
 
-<footer id="contact" class="bg-zinc-950 border-t border-white/5 py-32">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<h2 class="serif text-5xl md:text-8xl mb-12 reveal">Ready to create?</h2>
-<a href="mailto:hello@example.com" class="inline-block text-xl md:text-2xl border-b-2 border-white pb-2 hover:opacity-50 transition reveal">Let's Work Together</a>
+<footer id="contact" class="py-32 px-8 bg-white">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-serif-main text-5xl md:text-7xl mb-12 reveal">Let’s create something beautiful.</h2>
 
-<div class="mt-24 flex justify-center space-x-12 opacity-40 uppercase text-xs tracking-[0.3em]">
-<a href="#" class="hover:opacity-100">Instagram</a>
-<a href="#" class="hover:opacity-100">Vimeo</a>
-<a href="#" class="hover:opacity-100">LinkedIn</a>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left reveal">
+<input type="text" placeholder="NAME" class="bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest">
+<input type="email" placeholder="EMAIL" class="bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest">
+<textarea placeholder="TELL ME ABOUT YOUR PROJECT" class="md:col-span-2 bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest h-32"></textarea>
+<button class="md:col-span-2 btn-luxury mt-8">Send Inquiry</button>
+</form>
+
+<div class="mt-24 pt-12 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
+<span class="font-serif-main text-xl uppercase tracking-widest">Aisha Abbas</span>
+<div class="flex space-x-8 opacity-40 text-[10px] tracking-widest">
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Pinterest</a>
+</div>
+<span class="text-[9px] opacity-30">© 2026 Aisha Abbas Creative.</span>
 </div>
 </div>
 </footer>
 
 <script>
-// Initialize Lucide Icons
 lucide.createIcons();
 
-// Custom Cursor Logic
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', (e) => {
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
-});
-
-// Scroll Reveal Animation
+// Scroll Animation Logic
 const observerOptions = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
@@ -172,22 +264,6 @@ entry.target.classList.add('active');
 }, observerOptions);
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Video Hover Play/Pause
-document.querySelectorAll('.project-card').forEach(card => {
-const video = card.querySelector('video');
-card.addEventListener('mouseenter', () => {
-video.play();
-cursor.innerHTML = '<span class="text-[4px] font-bold text-black uppercase tracking-tighter">PLAY</span>';
-cursor.classList.add('flex', 'items-center', 'justify-center');
-});
-card.addEventListener('mouseleave', () => {
-video.pause();
-video.currentTime = 0;
-cursor.innerHTML = '';
-cursor.classList.remove('flex', 'items-center', 'justify-center');
-});
-});
 </script>
 </body>
 </html>
