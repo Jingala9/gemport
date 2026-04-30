@@ -1,269 +1,351 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aisha Abbas | Luxury Travel Content Creator</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Abbas | Luxury Travel Creative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        :root {
+            --bg-beige: #f2ede4;
+            --bg-cream: #faf9f6;
+            --text-brown: #3d342f;
+            --accent-gold: #c5a47e;
+            --light-sand: #e8e1d9;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-:root {
---warm-beige: #F5F0E8;
---soft-cream: #FCF9F5;
---deep-brown: #3E2F28;
---light-sand: #E8DED1;
---gold-accent: #C5A059;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-background-color: var(--warm-beige);
-color: var(--deep-brown);
-font-family: 'Montserrat', sans-serif;
-}
+        body {
+            background-color: var(--bg-beige);
+            color: var(--text-brown);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-.font-serif-main { font-family: 'Cormorant Garamond', serif; font-weight: 700; }
-.font-serif-soft { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; }
-.font-script { font-family: 'Great Vibes', cursive; color: var(--gold-accent); }
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
 
-.glass-nav {
-background: rgba(245, 240, 232, 0.8);
-backdrop-filter: blur(10px);
-border-bottom: 1px solid rgba(62, 47, 40, 0.05);
-}
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
 
-.reveal {
-opacity: 0;
-transform: translateY(20px);
-transition: all 1s ease-out;
-}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-.reveal.active {
-opacity: 1;
-transform: translateY(0);
-}
+        nav.scrolled {
+            padding: 20px 5%;
+            background: rgba(242, 237, 228, 0.9);
+            backdrop-filter: blur(10px);
+        }
 
-.btn-luxury {
-border: 1px solid var(--deep-brown);
-padding: 0.75rem 2rem;
-transition: all 0.4s ease;
-text-transform: uppercase;
-letter-spacing: 0.1em;
-font-size: 0.75rem;
-}
+        .nav-links { display: flex; gap: 40px; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
 
-.btn-luxury:hover {
-background-color: var(--deep-brown);
-color: white;
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
 
-.parallax-bg {
-background-attachment: fixed;
-background-position: center;
-background-size: cover;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(242, 237, 228, 0.4);
+        }
 
-/* Custom Project Hover */
-.project-card:hover img {
-transform: scale(1.05);
-}
-.project-card img {
-transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-</style>
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            z-index: 10;
+            position: relative;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* About Section */
+        .section { padding: 120px 10%; position: relative; }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 70vh;
+            background: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80') center/cover;
+            border-radius: 2px;
+        }
+
+        .about-content h2 { font-size: 3rem; margin-bottom: 20px; }
+        .about-content p { font-size: 1.1rem; font-weight: 300; max-width: 450px; }
+
+        /* Portfolio / iPhone Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .iphone-mockup {
+            position: relative;
+            background: #fff;
+            border-radius: 35px;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            aspect-ratio: 9/19.5;
+            overflow: hidden;
+            border: 4px solid #fff;
+            transition: var(--transition);
+        }
+
+        .iphone-mockup:hover { transform: translateY(-10px) scale(1.02); }
+
+        .iphone-mockup .video-thumb {
+            width: 100%;
+            height: 100%;
+            background: var(--light-sand);
+            border-radius: 25px;
+            object-fit: cover;
+        }
+
+        /* Stats Section (Why UGC) */
+        .ugc-section { text-align: center; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 60px;
+        }
+
+        .stat-item h3 { font-size: 3rem; color: var(--accent-gold); }
+        .stat-item p { text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+
+        /* Brands Logo Strip */
+        .brands-strip {
+            padding: 60px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            opacity: 0.7;
+        }
+
+        .brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1px; }
+
+        /* Services & Rates */
+        .rates-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .rate-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--light-sand);
+            padding: 20px 0;
+        }
+
+        .bundle { color: var(--accent-gold); font-weight: 400; }
+
+        /* Testimonials */
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-cream);
+            padding: 40px;
+            border-radius: 4px;
+        }
+
+        .testimonial-card p { font-style: italic; margin-bottom: 20px; }
+        .client-name { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); }
+
+        /* Footer / Contact */
+        .contact-section { text-align: center; padding: 150px 10%; }
+        .contact-section h2 { font-size: 4rem; margin-bottom: 40px; }
+        .contact-details { font-size: 1.2rem; font-weight: 300; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .about-grid, .portfolio-grid, .rates-container, .testimonial-slider { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-<body class="selection:bg-stone-200">
+<body>
 
-<nav class="fixed top-0 w-full z-50 glass-nav">
-<div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-<span class="font-serif-main text-2xl tracking-widest uppercase">Aisha Abbas</span>
-<div class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.2em]">
-<a href="#work" class="hover:text-amber-700 transition">Work</a>
-<a href="#about" class="hover:text-amber-700 transition">About</a>
-<a href="#services" class="hover:text-amber-700 transition">Services</a>
-<a href="#contact" class="hover:text-amber-700 transition">Contact</a>
-</div>
-<div class="md:hidden"><i data-lucide="menu"></i></div>
-</div>
-</nav>
+    <nav id="navbar">
+        <div class="logo" style="letter-spacing: 4px; font-weight: 300;">A.A</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#work">Portfolio</a>
+            <a href="#rates">Rates</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-<video autoplay muted loop playsinline class="absolute w-full h-full object-cover">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-a-luxury-resort-and-the-sea-18151-large.mp4" type="video/mp4">
-</video>
-<div class="absolute inset-0 bg-[#F5F0E8]/30"></div>
+    <section class="hero">
+        <h1>Aisha Abbas</h1>
+    </section>
 
-<div class="relative z-10 text-center px-4">
-<span class="font-script text-4xl md:text-5xl block mb-2">Aisha Abbas</span>
-<h1 class="font-serif-main text-5xl md:text-8xl mb-6 tracking-tight">Luxury Travel <br>Content Creator</h1>
-<p class="max-w-xl mx-auto text-sm md:text-base font-light tracking-wide mb-10 opacity-90">
-I create refined visual stories for brands and destinations worldwide.
-</p>
-<div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-<a href="#work" class="btn-luxury bg-white/20 backdrop-blur-sm">View My Work</a>
-<a href="#contact" class="btn-luxury bg-[#3E2F28] text-white">Work With Me</a>
-</div>
-</div>
+    <section id="about" class="section">
+        <div class="about-grid">
+            <div class="about-image"></div>
+            <div class="about-content">
+                <h2>The Storyteller</h2>
+                <p>
+                    I capture destinations through a lens of quiet luxury and intentionality. Having explored over 20 countries across Africa, Asia, and Europe, my work is a curated reflection of the world's most refined corners.
+                    <br><br>
+                    I don't just create content; I craft visual poems for brands that value aesthetic excellence.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-pulse flex flex-col items-center opacity-40">
-<span class="text-[9px] uppercase tracking-[0.3em] mb-2">Scroll</span>
-<div class="w-[1px] h-12 bg-[#3E2F28]"></div>
-</div>
-</section>
+    <section class="section ugc-section" style="background: var(--bg-cream);">
+        <h2>Why UGC?</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>92%</h3>
+                <p>Consumer Trust</p>
+            </div>
+            <div class="stat-item">
+                <h3>4X</h3>
+                <p>Click-Through Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>+28%</h3>
+                <p>Engagement</p>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="py-32 px-8 bg-white/50">
-<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-<div class="reveal relative">
-<div class="aspect-[4/5] bg-stone-200 overflow-hidden rounded-sm shadow-2xl">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac55?auto=format&fit=crop&q=80&w=800" alt="Aisha Abbas" class="w-full h-full object-cover grayscale-[20%]">
-</div>
-<div class="absolute -bottom-10 -right-10 w-64 h-64 border border-[#C5A059]/30 hidden md:block"></div>
-</div>
+    <section id="work" class="section">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <p style="letter-spacing: 3px; font-size: 10px; text-transform: uppercase;">Selected Works</p>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80" alt="Work"></div>
+        </div>
+        
+        <div class="portfolio-grid" style="margin-top: 20px;">
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80" alt="Work"></div>
+            <div class="iphone-mockup"><img class="video-thumb" src="https://images.unsplash.com/photo-1512918766671-ed6a07be0618?auto=format&fit=crop&q=80" alt="Work"></div>
+        </div>
+    </section>
 
-<div class="reveal">
-<span class="font-serif-soft text-2xl mb-4 block">The Art of Travel</span>
-<h2 class="font-serif-main text-4xl md:text-5xl mb-8 leading-tight">Capturing destinations through a lens of elegance.</h2>
-<p class="text-stone-600 leading-relaxed mb-12 font-light">
-Based between Dubai and Paris, I specialize in creating editorial-style UGC that feels like a luxury hotel campaign. My work blends emotion with high-end aesthetics, ensuring every frame resonates with the sophisticated traveler.
-</p>
+    <div class="brands-strip">
+        <span class="brand-logo">Gisou</span>
+        <span class="brand-logo">Wyndham</span>
+        <span class="brand-logo">Airbnb</span>
+        <span class="brand-logo">Trip.com</span>
+        <span class="brand-logo">The Leaf</span>
+        <span class="brand-logo">%Arabica</span>
+        <span class="brand-logo">El&N London</span>
+    </div>
 
-<div class="grid grid-cols-3 gap-8 pt-8 border-t border-stone-200">
-<div>
-<span class="block text-2xl font-serif-main">30+</span>
-<span class="text-[10px] uppercase tracking-widest opacity-60">Countries</span>
-</div>
-<div>
-<span class="block text-2xl font-serif-main">50+</span>
-<span class="text-[10px] uppercase tracking-widest opacity-60">Brands</span>
-</div>
-<div>
-<span class="block text-2xl font-serif-main">2M+</span>
-<span class="text-[10px] uppercase tracking-widest opacity-60">Views</span>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section id="rates" class="section" style="background: var(--bg-cream);">
+        <div class="rates-container">
+            <div>
+                <h2 style="margin-bottom: 30px;">Investment</h2>
+                <div class="rate-item"><span>1x Edited Video</span> <span>€65</span></div>
+                <div class="rate-item"><span>Raw Footage</span> <span>€45</span></div>
+                <div class="rate-item bundle"><span>3x Video Bundle</span> <span>€180</span></div>
+                <div class="rate-item"><span>Social Management</span> <span>Custom</span></div>
+            </div>
+            <div>
+                <h2 style="margin-bottom: 30px;">What to Expect</h2>
+                <ul style="font-weight: 300;">
+                    <li style="margin-bottom: 15px;">— Delivery within 14 business days</li>
+                    <li style="margin-bottom: 15px;">— Full commercial usage rights</li>
+                    <li style="margin-bottom: 15px;">— High-end, brand-focused storytelling</li>
+                    <li style="margin-bottom: 15px;">— Authentic, cinematic lifestyle visuals</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<section id="work" class="py-32 px-8 bg-[#F5F0E8]">
-<div class="max-w-7xl mx-auto">
-<div class="flex justify-between items-end mb-20 reveal">
-<div>
-<span class="font-script text-3xl">Curated Collection</span>
-<h2 class="font-serif-main text-5xl mt-2">Visual Stories</h2>
-</div>
-<div class="hidden md:flex space-x-6 text-[10px] uppercase tracking-widest">
-<button class="hover:text-amber-700 underline">All</button>
-<button class="opacity-40 hover:opacity-100">Hotels</button>
-<button class="opacity-40 hover:opacity-100">Lifestyle</button>
-</div>
-</div>
+    <section class="section">
+        <h2 style="text-align: center; margin-bottom: 60px;">Client Voices</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <p>"Aisha captured the essence of The Leaf perfectly. Her eye for detail is rare. The content felt very natural, not forced at all."</p>
+                <span class="client-name">Ema — The Leaf</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Beautiful work. Delivery was fast and the quality was exactly what we needed for our high-end clientele."</p>
+                <span class="client-name">Jennifer — Be Zanzibar</span>
+            </div>
+        </div>
+    </section>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-<div class="reveal project-card group cursor-pointer">
-<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
-</div>
-</div>
-<h3 class="font-serif-main text-2xl">The Azure Resort</h3>
-<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Amalfi Coast • 2024</p>
-</div>
+    <section id="contact" class="contact-section">
+        <h2>Let’s create something beautiful together.</h2>
+        <div class="contact-details">
+            <p>Aisha.ali1346@com</p>
+            <p style="margin: 20px 0;">+31687849311</p>
+        </div>
+    </section>
 
-<div class="reveal project-card group cursor-pointer lg:mt-24">
-<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
-<img src="https://images.unsplash.com/photo-1544161515-4ad6ce6e832d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
-</div>
-</div>
-<h3 class="font-serif-main text-2xl">Sands of Serenity</h3>
-<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Wellness & Beauty • UGC</p>
-</div>
+    <footer style="padding: 40px; text-align: center; font-size: 10px; letter-spacing: 2px; opacity: 0.5;">
+        &copy; 2026 AISHA ABBAS. ALL RIGHTS RESERVED.
+    </footer>
 
-<div class="reveal project-card group cursor-pointer">
-<div class="aspect-[9/12] overflow-hidden rounded-sm bg-stone-100 mb-6 relative">
-<img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-[#3E2F28]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-<span class="text-white text-[10px] uppercase tracking-[0.4em] border border-white/40 px-6 py-2">View Project</span>
-</div>
-</div>
-<h3 class="font-serif-main text-2xl">Hotel de L'Opera</h3>
-<p class="text-[10px] uppercase tracking-[0.2em] opacity-50 mt-2">Paris • Brand Campaign</p>
-</div>
-</div>
-</div>
-</section>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
 
-<section id="services" class="py-32 px-8 bg-[#FCF9F5]">
-<div class="max-w-7xl mx-auto text-center">
-<span class="font-script text-3xl">Collaboration</span>
-<h2 class="font-serif-main text-5xl mt-2 mb-20">Creative Services</h2>
-
-<div class="grid md:grid-cols-4 gap-12">
-<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
-<i data-lucide="camera" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
-<h4 class="font-serif-main text-xl mb-4">UGC Content</h4>
-<p class="text-[11px] font-light leading-relaxed opacity-70">Authentic luxury reviews and vertical video storytelling.</p>
-</div>
-<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
-<i data-lucide="video" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
-<h4 class="font-serif-main text-xl mb-4">Hotel Shoots</h4>
-<p class="text-[11px] font-light leading-relaxed opacity-70">Aesthetic cinematography for high-end resorts.</p>
-</div>
-<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
-<i data-lucide="sparkles" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
-<h4 class="font-serif-main text-xl mb-4">Brand Ambassadorship</h4>
-<p class="text-[11px] font-light leading-relaxed opacity-70">Long-term partnerships for premium lifestyle brands.</p>
-</div>
-<div class="reveal p-8 border border-stone-100 hover:border-[#C5A059]/30 transition group">
-<i data-lucide="smartphone" class="mx-auto mb-6 opacity-40 group-hover:text-[#C5A059] transition"></i>
-<h4 class="font-serif-main text-xl mb-4">Social Visuals</h4>
-<p class="text-[11px] font-light leading-relaxed opacity-70">Aesthetic-led social media strategy and visual curation.</p>
-</div>
-</div>
-</div>
-</section>
-
-<footer id="contact" class="py-32 px-8 bg-white">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="font-serif-main text-5xl md:text-7xl mb-12 reveal">Let’s create something beautiful.</h2>
-
-<form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left reveal">
-<input type="text" placeholder="NAME" class="bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest">
-<input type="email" placeholder="EMAIL" class="bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest">
-<textarea placeholder="TELL ME ABOUT YOUR PROJECT" class="md:col-span-2 bg-transparent border-b border-stone-200 py-4 focus:outline-none focus:border-[#C5A059] text-xs tracking-widest h-32"></textarea>
-<button class="md:col-span-2 btn-luxury mt-8">Send Inquiry</button>
-</form>
-
-<div class="mt-24 pt-12 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
-<span class="font-serif-main text-xl uppercase tracking-widest">Aisha Abbas</span>
-<div class="flex space-x-8 opacity-40 text-[10px] tracking-widest">
-<a href="#">Instagram</a>
-<a href="#">TikTok</a>
-<a href="#">Pinterest</a>
-</div>
-<span class="text-[9px] opacity-30">© 2026 Aisha Abbas Creative.</span>
-</div>
-</div>
-</footer>
-
-<script>
-lucide.createIcons();
-
-// Scroll Animation Logic
-const observerOptions = { threshold: 0.1 };
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('active');
-}
-});
-}, observerOptions);
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+        // Animations
+        ScrollReveal().reveal('.section, .iphone-mockup', {
+            delay: 200,
+            distance: '30px',
+            origin: 'bottom',
+            interval: 100
+        });
+    </script>
 </body>
 </html>
